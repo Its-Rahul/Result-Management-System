@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClassRequest;
 use App\Models\Classes;
+use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -29,6 +30,7 @@ class ClassController extends Controller
      */
     public function create()
     {
+
         return view('backend/class/create');
     }
 
@@ -149,4 +151,14 @@ class ClassController extends Controller
         }
         return $html;
     }
+//    public function getStudentByClassId(Request $request){
+//        $classes = Student::find($request->input('class_id'));
+//
+//        $html = "<option value=''>Select Subject</option>";
+//        foreach($classes->students as $student){
+//            $html .= "<option value='$student->id'>$student->fullname</option>";
+//
+//        }
+//        return $html;
+//    }
 }

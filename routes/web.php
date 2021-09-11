@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\StudentController;
 use App\Http\Controllers\Backend\ResultController;
 use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //for ajax
 Route::post('class/getSubjectByClassId', [ClassController::class,'getSubjectByClassId'])->name('class.getSubject');
+Route::post('class/getStudentByClassId', [ClassController::class,'getStudentByClassId'])->name('class.getStudent');
 
 Route::get('class/create', [ClassController::class,'create'])->name('class.create');
 Route::post('class', [ClassController::class,'store'])->name('class.store');
@@ -52,7 +54,9 @@ Route::get('student/{id}', [StudentController::class,'show'])->name('student.sho
 Route::delete('student/{id}', [StudentController::class,'destroy'])->name('student.destroy');
 Route::get('student/{id}/edit', [StudentController::class,'edit'])->name('student.edit');
 Route::put('student/{id}', [StudentController::class,'update'])->name('student.update');
+Route::get('student/create-pdf', [StudentController::class,'createPDF'])->name('student.createPDF');
 
+Route::post('result/search', [ResultController::class,'search'])->name('result.search');
 Route::get('result/create', [ResultController::class,'create'])->name('result.create');
 Route::post('result', [ResultController::class,'store'])->name('result.store');
 Route::get('result', [ResultController::class,'index'])->name('result.index');

@@ -8,8 +8,9 @@ use App\Models\Classes;
 use App\Models\Result;
 use App\Models\Student;
 use App\Models\Subject;
-use App\Models\SubjectCombo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Sabberworm\CSS\Settings;
 
 class ResultController extends Controller
 {
@@ -32,9 +33,11 @@ class ResultController extends Controller
      */
     public function create()
     {
+
         $data['class_id'] = Classes::all();
-        $data['students'] = Student::all();
+        $data['student_id'] = Student::all();
         $data['subject_id'] = Subject::all();
+
 
         return view('backend/result/create',compact('data'));
     }
@@ -134,4 +137,18 @@ class ResultController extends Controller
         return redirect()->route('result.index');
     }
 
+
+//    public function search(ResultRequest $request)
+//    {
+//
+//        $class = $request->input('class');
+//
+//        $data['search']= DB::table('table_students')
+//            ->select("*")
+//            ->where('class_id',$class)
+//            ->get();
+//
+//        return view('result.create',compact('data'));
+//
+//    }
 }

@@ -10,4 +10,9 @@ class Result extends Model
     use HasFactory;
     protected $table = 'table_results';
     protected $fillable = ['class_id','student_id','subject_id','marks'];
+
+    public function classId(){
+        return$this->belongsTo(Classes::class,'class_id');
+    }
+
 }

@@ -7,8 +7,8 @@ use App\Http\Requests\StudentRequest;
 use App\Models\Classes;
 use App\Models\Student;
 use App\Models\Subject;
-use App\Models\SubjectCombo;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class StudentController extends Controller
 {
@@ -139,5 +139,18 @@ class StudentController extends Controller
             request()->session()->flash('error','Invalid request');
         }
         return redirect()->route('student.index');
+    }
+    // Generate PDF
+    public function createPDF() {
+
+        // retreive all records from db
+        $user = Student::all();
+
+        // share data to view
+        view()->share('user',$user);
+        $pdf = PDF::loadView('pdf_view', $user);
+
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
     }
 }

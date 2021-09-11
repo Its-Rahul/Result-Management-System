@@ -50,7 +50,7 @@
                 @foreach($data['rows'] as $i => $row)
            <tr>
                <td>{{$i+1}}</td>
-               <td>{{$row->date}}</td>
+               <td>{{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}</td>
                <td>{{$row->notice}}</td>
                <td> @if($row->status == 1)
                        <span class="text-success">Active</span>

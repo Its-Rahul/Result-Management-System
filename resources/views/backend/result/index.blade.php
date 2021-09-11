@@ -38,8 +38,8 @@
             @if(Session::has('error'))
                 <p class="alert alert-danger">{{Session::get('danger')}}</p>
             @endif
-            <table class="table table-boardered">
-
+            <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+<thead>
            <tr>
                <th>#</th>
                <th>Class</th>
@@ -49,6 +49,8 @@
                <th>Marks</th>
                <th>Action</th>
            </tr>
+</thead>
+                <tbody>
                 @foreach($data['rows'] as $i => $row)
            <tr>
                <td>{{$i+1}}</td>
@@ -68,6 +70,7 @@
                </td>
            </tr>
                 @endforeach
+                </tbody>
        </table>
     </div>
     <!-- /.card-body -->

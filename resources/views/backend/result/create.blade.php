@@ -23,7 +23,6 @@
 
 @endsection
 
-
 @section('main-content')
     <div class="card-header">
         <strong><h2 class="card-title">Create Result
@@ -51,12 +50,12 @@
                         @foreach($data['subject_id'] as $subject)
                                 <option value="{{$subject->id}}">{{$subject->subject_name}}</option>
                         @endforeach
-
-
                 </select>
-
             </div>
-<div class="row">
+
+
+
+            <div class="row">
 <table class="table table-hover">
     <tr>
         <th>ID</th>
@@ -66,25 +65,30 @@
         <th>Pass Marks</th>
         <th>Marks</th>
     </tr>
-    @foreach($data['students'] as $i => $row)
-    <tr>
+
+
+    @foreach($data['student_id'] as $i => $row)
+
+
+        <tr>
         <td>{{$i+1}}</td>
         <td>{{$row->roll_id}}</td>
         <td>{{$row->fullname}}</td>
         <td>100</td>
         <td>40</td>
-        <td>70</td>
+        <td><input type="number" name="marks" class="form-control" value="{{old('marks')}}" id="marks"  autocomplete="off">
+        </td>
 
     </tr>
     @endforeach
 
+
 </table>
 </div>
+
             <div class="form-group">
-                <button type="submit" name="submit" class="btn btn-success btn-labeled">Submit<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
+                <button type="submit" name="submit" class="btn btn-success btn-labeled">Submit <span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
             </div>
-
-
         </form>
 
     </div>
@@ -92,4 +96,5 @@
 @endsection
 @section('js')
     @include('backend.result.includes.script')
+
 @endsection

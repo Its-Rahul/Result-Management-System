@@ -38,8 +38,11 @@
             @if(Session::has('error'))
                 <p class="alert alert-danger">{{Session::get('danger')}}</p>
             @endif
-            <table class="table table-boardered">
-
+            <div class="d-flex justify-content-end mb-4">
+                <a class="btn btn-primary" href="{{ URL::to('/student/create-pdf') }}">Export to PDF</a>
+            </div>
+            <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+<thead>
            <tr>
                <th>#</th>
                <th>Class</th>
@@ -47,21 +50,23 @@
                <th>Roll ID</th>
                <th>Email</th>
                <th>Phone</th>
-               <th>Date Of Birth</th>
+
                <th>Image</th>
                <th>Address</th>
                <th>Status</th>
                <th>Action</th>
            </tr>
+</thead>
+                <tbody>
                 @foreach($data['rows'] as $i => $row)
            <tr>
                <td>{{$i+1}}</td>
-               <td>{{$row->classId->className}}</td>
+               <td>{{$row->classId->classNameNumeric}}</td>
                <td>{{$row->fullname}}</td>
                <td>{{$row->roll_id}}</td>
                <td>{{$row->email}}</td>
                <td>{{$row->phone}}</td>
-               <td>{{$row->dob}}</td>
+
                <td>
                    <img src="{{asset('uploads/images/student/'.$row->image)}}"  height="100px" width="100px" alt="">
                </td>
@@ -85,6 +90,7 @@
                </td>
            </tr>
                 @endforeach
+                </tbody>
        </table>
     </div>
     <!-- /.card-body -->
