@@ -3,6 +3,17 @@
 @section('title', 'Student Index')
 
 @section('blank page')
+
+    <style>
+        /*if you want to remove some content in print display then use .no_print class on it */
+        @media print {
+            #datatable_wrapper .row:first-child {display:none;}
+            #datatable_wrapper .row:last-child {display:none;}
+            .no_print {display:none;}
+        }
+
+    </style>
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -25,9 +36,10 @@
 
 
 @section('main-content')
-    <div class="card-header">
+    <div class="card-header no_print">
         <h2 class="card-title">Manage Classes
             <a href="{{route('student.create')}}" class="btn btn-success">Create</a>
+            <a class="btn btn-primary text-white" id="printBtn">Print/PDF</a>
         </h2>
 
     </div>
@@ -38,9 +50,10 @@
             @if(Session::has('error'))
                 <p class="alert alert-danger">{{Session::get('danger')}}</p>
             @endif
-            <div class="d-flex justify-content-end mb-4">
-                <a class="btn btn-primary" href="{{ URL::to('/student/create-pdf') }}">Export to PDF</a>
-            </div>
+
+
+
+
             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
 <thead>
            <tr>
@@ -54,14 +67,14 @@
                <th>Image</th>
                <th>Address</th>
                <th>Status</th>
-               <th>Action</th>
+               <th class="no_print">Action</th>
            </tr>
 </thead>
                 <tbody>
                 @foreach($data['rows'] as $i => $row)
            <tr>
                <td>{{$i+1}}</td>
-               <td>{{$row->classId->classNameNumeric}}</td>
+               <td>{{$row->classId->className}}</td>
                <td>{{$row->fullname}}</td>
                <td>{{$row->roll_id}}</td>
                <td>{{$row->email}}</td>
@@ -79,7 +92,7 @@
                    @endif
                </td>
 
-               <td>
+               <td class="no_print">
                    <a href="{{route('student.show',$row->id)}}" class="btn btn-info">View</a>
                    <a href="{{route('student.edit',$row->id)}}" class="btn btn-warning">Edit</a>
                    <form action="{{route('student.destroy',$row->id)}}" method="post">
@@ -95,3 +108,4 @@
     </div>
     <!-- /.card-body -->
 @endsection
+u

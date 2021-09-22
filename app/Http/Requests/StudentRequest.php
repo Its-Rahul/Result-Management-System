@@ -24,14 +24,16 @@ class StudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname' => 'required',
+
+            'fullname' => 'required|regex:/^[a-zA-Z ]+$/',
             'email' => 'required',
-            'roll_id' => 'required',
+            'roll_id' => 'required|Integer',
             'class_id' => 'required',
-            'phone' => 'required',
-            'dob' => 'required',
-            'address' => 'required',
-            'image' => 'mimes:png,jpg|max:2048'
+            'phone' => 'required|min:10|max:10|regex:/^(98)([0-9]{8})$/',
+            'dob' => 'required|before:today|before:3 years|nullable',
+            'address' => 'required|regex:/^[a-zA-Z ]+$/',
+            'image' => 'mimes:png,jpg|max:2048',
+            'status' => 'required',
         ];
     }
 }

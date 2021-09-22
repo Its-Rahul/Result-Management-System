@@ -3,6 +3,15 @@
 @section('title', 'Result Index')
 
 @section('blank page')
+    <style>
+        /*if you want to remove some content in print display then use .no_print class on it */
+        @media print {
+            #datatable_wrapper .row:first-child {display:none;}
+            #datatable_wrapper .row:last-child {display:none;}
+            .no_print {display:none;}
+        }
+
+    </style>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -26,8 +35,9 @@
 
 @section('main-content')
     <div class="card-header">
-        <h2 class="card-title">Manage Result
+        <h2 class="card-title no_print">Manage Result
             <a href="{{route('result.create')}}" class="btn btn-success">Create</a>
+            <a class="btn btn-primary text-white" id="printBtn">Print/PDF</a>
         </h2>
 
     </div>
@@ -74,4 +84,19 @@
        </table>
     </div>
     <!-- /.card-body -->
+@endsection
+@section('js')
+    <script type="text/javascript" src="{{ asset('assets/backend/plugins/print_any_part/dist/jQuery.print.min.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            $("#printBtn").on('click', function() {
+
+                $.print("#printable");
+
+            });
+
+        });
+    </script>
+
 @endsection

@@ -24,8 +24,8 @@ class NoticeRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required',
-            'notice' => 'required',
+            'date' => 'required|before:today|nullable',
+            'notice' =>  'required|regex:/^[a-zA-Z ]+$/',
             'status' => 'required',
         ];
     }

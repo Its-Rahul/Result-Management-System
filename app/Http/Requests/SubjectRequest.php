@@ -24,8 +24,8 @@ class SubjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'subject_name' => 'required',
-            'subject_code' => 'required',
+            'subject_name' => 'required|regex:/^[a-zA-Z ]+$/',
+            'subject_code' => 'required|min:1|max:5|regex:/^[0-9 ]+$/',
         ];
     }
 }

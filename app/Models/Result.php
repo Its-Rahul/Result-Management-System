@@ -12,7 +12,10 @@ class Result extends Model
     protected $fillable = ['class_id','student_id','subject_id','marks'];
 
     public function classId(){
-        return$this->belongsTo(Classes::class,'class_id');
+        return $this->belongsTo(Classes::class,'class_id');
+    }
+    public function subjectId(){
+        return $this->belongsTo(Subject::class,'subject_id');
     }
 
 }

@@ -55,7 +55,7 @@
                <td>{{$row->classId->className}}</td>
                <td>{{$row->subject_name}}</td>
                <td>{{$row->subject_code}}</td>
-               <td>{{$row->created_at}}</td>
+               <td>{{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}</td>
                <td>{{$row->updated_at}}</td>
                <td>
                    <a href="{{route('subject.show',$row->id)}}" class="btn btn-info">View</a>

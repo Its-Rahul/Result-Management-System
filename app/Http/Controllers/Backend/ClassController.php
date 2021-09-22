@@ -110,15 +110,15 @@ class ClassController extends Controller
         $data['row'] = Classes::find($id);
         if (!$data['row']) {
             request()->session()->flash('error', 'Invalid request');
-            return redirect()->route('class.index');
+            return redirect()->route('class.create');
         }
-        if ($data['row']->update($request->all())) {
+        if ($data['row']->update($request->input('class_id'))) {
             $request->session()->flash('success', 'Class Update Successfully');
         } else {
             $request->session()->flash('error', 'Class Update failed');
 
         }
-        return redirect()->route('class.index');
+        return redirect()->route('class.create');
     }
 
     /**
@@ -144,21 +144,21 @@ class ClassController extends Controller
     }
     public function getSubjectByClassId(Request $request){
         $class = Classes::find($request->input('class_id'));
-        $html = "<option value=''>Select Subject</option>";
+        $html = "";
         foreach($class->subjects as $subject){
-            $html .= "<option value='$subject->id'>$subject->subject_name</option>";
+            $html .= "<tr><td><input type='hidden' name='subject_id'  value='$subject->id'>{$subject->subject_name}</td>
+                      <td><input type='number' class='form-control col-md-2' name='marks'></td></tr>";
 
         }
         return $html;
     }
-//    public function getStudentByClassId(Request $request){
-//        $classes = Student::find($request->input('class_id'));
-//
-//        $html = "<option value=''>Select Subject</option>";
-//        foreach($classes->students as $student){
-//            $html .= "<option value='$student->id'>$student->fullname</option>";
-//
-//        }
-//        return $html;
-//    }
+    public function getStudentByClassId(Request $request){
+        $classes = Classes::find($request->input('class_id'));
+        $html = "<option value=''>Select Student</option>";
+        foreach($classes->students as $student){
+            $html .= "<option value='$student->id'>$student->fullname</option>";
+
+        }
+        return $html;
+    }
 }

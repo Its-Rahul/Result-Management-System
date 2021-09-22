@@ -20,10 +20,16 @@ use App\Http\Controllers\Backend\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend/welcome');
 });
 
+
+
 Auth::routes();
+
+
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //for ajax
@@ -54,16 +60,19 @@ Route::get('student/{id}', [StudentController::class,'show'])->name('student.sho
 Route::delete('student/{id}', [StudentController::class,'destroy'])->name('student.destroy');
 Route::get('student/{id}/edit', [StudentController::class,'edit'])->name('student.edit');
 Route::put('student/{id}', [StudentController::class,'update'])->name('student.update');
-Route::get('student/create-pdf', [StudentController::class,'createPDF'])->name('student.createPDF');
+//Route::get('student/create-pdf', [StudentController::class,'createPDF'])->name('student.createPDF');
 
-Route::post('result/search', [ResultController::class,'search'])->name('result.search');
 Route::get('result/create', [ResultController::class,'create'])->name('result.create');
+
 Route::post('result', [ResultController::class,'store'])->name('result.store');
+
 Route::get('result', [ResultController::class,'index'])->name('result.index');
 Route::get('result/{id}', [ResultController::class,'show'])->name('result.show');
 Route::delete('result/{id}', [ResultController::class,'destroy'])->name('result.destroy');
 Route::get('result/{id}/edit', [ResultController::class,'edit'])->name('result.edit');
 Route::put('result/{id}', [ResultController::class,'update'])->name('result.update');
+Route::post('result/fetchData', [ResultController::class,'fetchData'])->name('result.fetchData');
+
 
 
 Route::get('notice/create', [NoticeController::class,'create'])->name('notice.create');

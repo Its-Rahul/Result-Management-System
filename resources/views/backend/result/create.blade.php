@@ -44,57 +44,29 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="subject_id" class="control-label">Subject</label>
-                <select name="subject_id" class="form-control" id="subject_id">
-                    <option value="">Select Subject</option>
-                        @foreach($data['subject_id'] as $subject)
-                                <option value="{{$subject->id}}">{{$subject->subject_name}}</option>
-                        @endforeach
+                <label for="student_id" class="control-label">Student</label>
+                <select name="student_id" class="form-control" id="student_id">
+                    <option value="">Select Student</option>
+                    @foreach($data['student_id'] as $student)
+                        <option value="{{$student->id}}">{{$student->fullname}}</option>
+                    @endforeach
                 </select>
             </div>
 
-
-
-            <div class="row">
 <table class="table table-hover">
-    <tr>
-        <th>ID</th>
-        <th>Roll Id</th>
-        <th> Name</th>
-        <th>Full Marks</th>
-        <th>Pass Marks</th>
-        <th>Marks</th>
-    </tr>
 
+    <tbody id="subject_id">
 
-    @foreach($data['student_id'] as $i => $row)
-
-
-        <tr>
-        <td>{{$i+1}}</td>
-        <td>{{$row->roll_id}}</td>
-        <td>{{$row->fullname}}</td>
-        <td>100</td>
-        <td>40</td>
-        <td><input type="number" name="marks" class="form-control" value="{{old('marks')}}" id="marks"  autocomplete="off">
-        </td>
-
-    </tr>
-    @endforeach
-
-
+    </tbody>
 </table>
-</div>
 
-            <div class="form-group">
-                <button type="submit" name="submit" class="btn btn-success btn-labeled">Submit <span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-            </div>
+
+        <div class="form-group">
+            <button type="submit" name="submit" class="btn btn-success btn-labeled">Submit <span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
+        </div>
         </form>
-
-    </div>
     <!-- /.card-body -->
 @endsection
 @section('js')
     @include('backend.result.includes.script')
-
 @endsection

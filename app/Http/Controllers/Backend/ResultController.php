@@ -34,6 +34,7 @@ class ResultController extends Controller
     public function create()
     {
 
+
         $data['class_id'] = Classes::all();
         $data['student_id'] = Student::all();
         $data['subject_id'] = Subject::all();
@@ -48,9 +49,10 @@ class ResultController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ResultRequest $request)
+    public function store(Request $request)
     {
-        $row = Student::create($request->all());
+
+        $row = Result::create($request->all());
         if($row){
             $request->session()->flash('success','Result Created Successfully');
         } else{
@@ -138,17 +140,17 @@ class ResultController extends Controller
     }
 
 
-//    public function search(ResultRequest $request)
-//    {
-//
-//        $class = $request->input('class');
-//
-//        $data['search']= DB::table('table_students')
-//            ->select("*")
-//            ->where('class_id',$class)
-//            ->get();
-//
-//        return view('result.create',compact('data'));
-//
-//    }
+    public function fetchData(ResultRequest $request)
+    {
+        dd($request);
+        $class = $request->input('class');
+
+        $data['search']= DB::table('table_students')
+            ->select("*")
+            ->where('class_id',$class)
+            ->get();
+
+        return view('result.create',compact('data'));
+
+    }
 }

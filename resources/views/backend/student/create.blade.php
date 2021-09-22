@@ -87,7 +87,7 @@
             </div>
             <div class="form-group">
                 <label for="phone" class="control-label">Phone</label>
-                <input type="text" name="phone" maxlength="10" class="form-control" value="{{old('phone')}}" id="phone" autocomplete="off">
+                <input type="number" name="phone" maxlength="10" class="form-control" value="{{old('phone')}}" id="phone" autocomplete="off">
 
                 @error('phone')
                 <p class="text-danger">{{ $message }}</p>
@@ -110,7 +110,7 @@
             </div>
             <div class="form-group">
                 <label for="image_file" class="control-label">Image</label>
-                <input type="file" name="image_file" class="form-control" value="{{old('image_file')}}" id="image_file" autocomplete="off">
+                <input type="file" name="image_file" class="form-control" value="{{old('image_file')}}" id="image_file" >
 
                 @error('image_file')
                 <p class="text-danger">{{ $message }}</p>

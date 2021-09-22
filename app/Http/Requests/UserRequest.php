@@ -24,13 +24,13 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
+            'name' => 'required|regex:/^[a-zA-Z ]+$/',
+            'email' => 'required|email',
+            'password' => 'required|max:5',
+            'phone' => 'required|min:10|max:10|regex:/^(98)([0-9]{8})$/',
+            'address' => 'required|regex:/^[a-zA-Z ]+$/',
             'status' => 'required',
-            'image' => 'required',
+            'image' => 'Required|mimes:png,jpg|max:2048',
         ];
     }
 }

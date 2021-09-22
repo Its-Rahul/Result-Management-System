@@ -12,6 +12,6 @@ class Subject extends Model
     protected $fillable = ['class_id','subject_name','subject_code'];
 
     public function classId(){
-        return$this->belongsTo(Classes::class,'class_id');
+        return $this->belongsTo(Classes::class,'class_id');
     }
 }

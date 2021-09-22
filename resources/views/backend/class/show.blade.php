@@ -50,10 +50,6 @@
                <td>{{$data['row'] ->classNameNumeric}}</td>
                 </tr>
                 <tr>
-               <th>Section</th>
-               <td>{{$data['row'] ->section}}</td>
-                </tr>
-                <tr>
                <th>Creation Date</th>
                <td>{{$data['row'] ->created_at}}</td>
                 </tr>

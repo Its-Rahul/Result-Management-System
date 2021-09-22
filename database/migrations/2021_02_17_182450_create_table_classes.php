@@ -18,7 +18,6 @@ class CreateTableClasses extends Migration
             $table->timestamps();
             $table->text('className');
             $table->integer('classNameNumeric');
-            $table->string('section');
         });
     }
 

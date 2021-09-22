@@ -44,7 +44,6 @@
                <th>#</th>
                <th>Image</th>
                <th>Full Name</th>
-               <th>Password</th>
                <th>Phone</th>
                <th>Address</th>
                <th>Status</th>
@@ -57,7 +56,7 @@
                    <img src="{{asset('uploads/images/users/'.$row->image)}}"  height="100px" width="100px" alt="">
                </td>
                <td>{{$row->name}}</td>
-               <td>{{$row->password}}</td>
+
                <td>{{$row->phone}}</td>
                <td>{{$row->address}}</td>
                <td> @if($row->status == 1)
@@ -67,12 +66,8 @@
                    @endif</td>
                <td>
                    <a href="{{route('user.show',$row->id)}}" class="btn btn-info">View</a>
-                   <a href="{{route('user.edit',$row->id)}}" class="btn btn-warning">Edit</a>
-                   <form action="{{route('user.destroy',$row->id)}}" method="post">
-                       <input type="hidden" name="_method" value="delete" />
-                       @csrf
-                       <button type="submit" class="btn btn-danger">Delete</button>
-                   </form>
+
+
 
                </td>
            </tr>

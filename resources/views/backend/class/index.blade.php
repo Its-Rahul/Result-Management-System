@@ -44,7 +44,6 @@
                <th>#</th>
                <th>Class Name</th>
                <th>Class Name Numeric</th>
-               <th>Section</th>
                <th>Action</th>
            </tr>
                 @foreach($data['rows'] as $i => $row)
@@ -52,7 +51,6 @@
                <td>{{$i+1}}</td>
                <td>{{$row->className}}</td>
                <td>{{$row->classNameNumeric}}</td>
-               <td>{{$row->section}}</td>
 
                <td>
                    <a href="{{route('class.show',$row->id)}}" class="btn btn-info">View</a>

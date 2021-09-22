@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Sabberworm\CSS\Rule\Rule;
 
 class ClassRequest extends FormRequest
 {
@@ -24,9 +25,10 @@ class ClassRequest extends FormRequest
     public function rules()
     {
         return [
-            'classname' => 'required|String|max:50',
-            'classnamenumeric' => 'required|Integer',
-            'section' => 'required|String|max:10',
+
+
+            'classnamenumeric' => 'required|Integer|unique:table_classes|max:10',
+            'classname' =>'required|unique:table_classes|max:255|regex:/^[a-zA-Z ]+$/',
         ];
     }
 }

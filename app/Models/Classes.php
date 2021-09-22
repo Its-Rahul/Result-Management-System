@@ -11,7 +11,7 @@ class Classes extends Model
     use HasFactory;
     protected $table = 'table_classes';
 
-    protected $fillable = ['classname','classnamenumeric','section'];
+    protected $fillable = ['classname','classnamenumeric'];
 
     function subjects(){
         return $this->hasMany(Subject::class,'class_id');

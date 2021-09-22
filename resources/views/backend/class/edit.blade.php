@@ -55,16 +55,7 @@
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="form-group has-success">
-                <label for="section" class="control-label">Section</label>
-                <div class="">
-                    <input type="text" name="section" class="form-control"  value="{{$data['row']->section}}" id="section">
-                    <span class="help-block">Eg- A,B,C etc</span>
-                </div>
-                @error('section')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
-            </div>
+
             <div class="form-group has-success">
 
                 <div class="">
