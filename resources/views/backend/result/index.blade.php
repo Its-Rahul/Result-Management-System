@@ -54,7 +54,6 @@
                <th>#</th>
                <th>Class</th>
                <th>Name</th>
-               <th>Roll Id</th>
                <th>Subject</th>
                <th>Marks</th>
                <th>Action</th>
@@ -64,15 +63,14 @@
                 @foreach($data['rows'] as $i => $row)
            <tr>
                <td>{{$i+1}}</td>
-               <td>{{$row->class_id}}</td>
-               <td>{{$row->student_id}}</td>
-               <td>{{$row->student_id}}</td>
+               <td>{{$row->classId->className}}</td>
+               <td>{{$row->studentId->fullname}}</td>
                <td>{{$row->subject_id}}</td>
                <td>{{$row->marks}}</td>
                <td>
                    <a href="{{route('result.show',$row->id)}}" class="btn btn-info">View</a>
                    <a href="#" class="btn btn-warning">Edit</a>
-                   <form action="{{route('class.destroy',$row->id)}}" method="post">
+                   <form action="{{route('class.destroy',$row->id)}}" method="post" class="d-inline">
                        <input type="hidden" name="_method" value="delete" />
                        @csrf
                        <button type="submit" class="btn btn-danger">Delete</button>

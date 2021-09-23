@@ -51,14 +51,22 @@ class ResultController extends Controller
      */
     public function store(Request $request)
     {
-
-        $row = Result::create($request->all());
-        if($row){
-            $request->session()->flash('success','Result Created Successfully');
-        } else{
-            $request->session()->flash('error','Result Creation failed');
+        $student_id = $request->input('student_id');
+        $class_id = $request->input('class_id');
+        $subject_id = $request->subject_id;
+        $marks = $request->marks;
+        for ($i = 0; $i< count($subject_id); $i++){
+            DB::table('table_results')->insert([
+                'student_id' => $student_id,
+                'class_id' => $class_id,
+                'subject_id' => $subject_id[$i],
+                'marks' => $marks[$i],
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
 
         }
+
         return redirect()->route('result.index');
     }
 

@@ -145,9 +145,10 @@ class ClassController extends Controller
     public function getSubjectByClassId(Request $request){
         $class = Classes::find($request->input('class_id'));
         $html = "";
+//        <input type='hidden' name='subject_id'  value='$subject->id'>{$subject->subject_name}
         foreach($class->subjects as $subject){
-            $html .= "<tr><td><input type='hidden' name='subject_id'  value='$subject->id'>{$subject->subject_name}</td>
-                      <td><input type='number' class='form-control col-md-2' name='marks'></td></tr>";
+            $html .= "<tr><td><input type='hidden' name='subject_id[]'  value='$subject->id'>{$subject->subject_name}</td>
+                      <td><input type='number' class='form-control col-md-2' name='marks[]'></td></tr>";
 
         }
         return $html;

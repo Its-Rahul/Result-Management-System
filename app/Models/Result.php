@@ -17,5 +17,8 @@ class Result extends Model
     public function subjectId(){
         return $this->belongsTo(Subject::class,'subject_id');
     }
+    public function studentId(){
+        return $this->belongsTo(Student::class,'student_id');
+    }
 
 }
