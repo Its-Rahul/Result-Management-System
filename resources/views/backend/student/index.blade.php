@@ -61,7 +61,7 @@
                <th>Class</th>
                <th>Full Name</th>
                <th>Roll ID</th>
-               <th>Email</th>
+
                <th>Phone</th>
 
                <th>Image</th>
@@ -77,7 +77,7 @@
                <td>{{$row->classId->className}}</td>
                <td>{{$row->fullname}}</td>
                <td>{{$row->roll_id}}</td>
-               <td>{{$row->email}}</td>
+
                <td>{{$row->phone}}</td>
 
                <td>
@@ -95,7 +95,7 @@
                <td class="no_print">
                    <a href="{{route('student.show',$row->id)}}" class="btn btn-info">View</a>
                    <a href="{{route('student.edit',$row->id)}}" class="btn btn-warning">Edit</a>
-                   <form action="{{route('student.destroy',$row->id)}}" method="post">
+                   <form action="{{route('student.destroy',$row->id)}}" method="post" class="d-inline">
                        <input type="hidden" name="_method" value="delete" />
                        @csrf
                        <button type="submit" class="btn btn-danger">Delete</button>
@@ -108,4 +108,18 @@
     </div>
     <!-- /.card-body -->
 @endsection
-u
+@section('js')
+    <script type="text/javascript" src="{{ asset('assets/backend/plugins/print_any_part/dist/jQuery.print.min.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            $("#printBtn").on('click', function() {
+
+                $.print("#printable");
+
+            });
+
+        });
+    </script>
+
+@endsection

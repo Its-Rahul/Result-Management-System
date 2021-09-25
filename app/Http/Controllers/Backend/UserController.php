@@ -38,8 +38,8 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $file = $request->file('image');
-        if ($request->hasFile("image")){
+        $file = $request->file('image_file');
+        if ($request->hasFile("image_file")){
             $fileName = time().'_'.$file->getClientOriginalName();
             $file->move(public_path('uploads/images/users'),$fileName);
             $request->request->add(['image'=> $fileName]);

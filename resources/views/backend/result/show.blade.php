@@ -43,24 +43,23 @@
            <tr>
 
                <th>Class Name</th>
-               <td>{{$data['row'] ->student_id}}</td>
+               <td>{{$data['row'] ->studentId->student_id}}</td>
            </tr>
                 <tr>
-               <th>Class Name Numeric</th>
-               <td>{{$data['row'] ->class_id}}</td>
+               <th>Student Name</th>
+               <td>{{$data['row'] ->classId->class_id}}</td>
                 </tr>
+
                 <tr>
-               <th>Section</th>
+               <th>Subjects</th>
                <td>{{$data['row'] ->subject_id}}</td>
                 </tr>
-                <tr>
-                    <th>Section</th>
-                    <td>{{$data['row'] ->marks}}</td>
-                </tr>
+
                 <tr>
                <th>Creation Date</th>
                <td>{{$data['row'] ->created_at}}</td>
                 </tr>
+
                 <tr>
                <th>Creation Date</th>
                <td>{{$data['row'] ->updated_at}}</td>

@@ -26,11 +26,11 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|regex:/^[a-zA-Z ]+$/',
             'email' => 'required|email',
-            'password' => 'required|max:5',
+            'password' => 'required',
             'phone' => 'required|min:10|max:10|regex:/^(98)([0-9]{8})$/',
             'address' => 'required|regex:/^[a-zA-Z ]+$/',
             'status' => 'required',
-            'image' => 'Required|mimes:png,jpg|max:2048',
+            'image' => 'mimes:png,jpg|max:2048',
         ];
     }
 }

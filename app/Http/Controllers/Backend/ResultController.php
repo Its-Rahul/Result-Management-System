@@ -39,6 +39,7 @@ class ResultController extends Controller
         $data['student_id'] = Student::all();
         $data['subject_id'] = Subject::all();
 
+        $data['active_student'] = Student::where('status','1')->get();
 
         return view('backend/result/create',compact('data'));
     }
@@ -148,17 +149,17 @@ class ResultController extends Controller
     }
 
 
-    public function fetchData(ResultRequest $request)
-    {
-        dd($request);
-        $class = $request->input('class');
-
-        $data['search']= DB::table('table_students')
-            ->select("*")
-            ->where('class_id',$class)
-            ->get();
-
-        return view('result.create',compact('data'));
-
-    }
+//    public function fetchData(ResultRequest $request)
+//    {
+//        dd($request);
+//        $class = $request->input('class');
+//
+//        $data['search']= DB::table('table_students')
+//            ->select("*")
+//            ->where('class_id',$class)
+//            ->get();
+//
+//        return view('result.create',compact('data'));
+//
+//    }
 }

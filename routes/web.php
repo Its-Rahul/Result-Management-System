@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\StudentController;
 use App\Http\Controllers\Backend\ResultController;
 use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\frontend\ResultsearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,4 +92,8 @@ Route::get('user/{id}', [UserController::class,'show'])->name('user.show');
 Route::delete('user/{id}', [UserController::class,'destroy'])->name('user.destroy');
 Route::get('user/{id}/edit', [UserController::class,'edit'])->name('user.edit');
 Route::put('user/{id}', [UserController::class,'update'])->name('user.update');
+
+Route::get('frontend/resultsearch', [ResultsearchController::class,'search'])->name('resultsearch.search');
+Route::get('frontend/marksheet', [ResultsearchController::class,'marksheet'])->name('resultsearch.marksheet');
+Route::get('frontend/welcome', [ResultsearchController::class,'back'])->name('welcome.back');
 

@@ -56,7 +56,7 @@
                <th>Name</th>
                <th>Subject</th>
                <th>Marks</th>
-               <th>Action</th>
+               <th class="no_print">Action</th>
            </tr>
 </thead>
                 <tbody>
@@ -67,7 +67,7 @@
                <td>{{$row->studentId->fullname}}</td>
                <td>{{$row->subject_id}}</td>
                <td>{{$row->marks}}</td>
-               <td>
+               <td class="no_print">
                    <a href="{{route('result.show',$row->id)}}" class="btn btn-info">View</a>
                    <a href="#" class="btn btn-warning">Edit</a>
                    <form action="{{route('class.destroy',$row->id)}}" method="post" class="d-inline">

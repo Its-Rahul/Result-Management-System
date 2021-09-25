@@ -71,8 +71,8 @@
             </div>
             <div class="form-group has-success">
                 <label for="image" class="control-label">Images</label>
-                <input type="file" name="image" class="form-control" value="{{old('image')}}"  id="image">
-                @error('image')
+                <input type="file" name="image_file" class="form-control" value="{{old('image_file')}}"  id="image_file">
+                @error('image_file')
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>

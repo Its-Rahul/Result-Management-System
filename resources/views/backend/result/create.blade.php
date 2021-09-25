@@ -47,7 +47,7 @@
                 <label for="student_id" class="control-label">Student</label>
                 <select name="student_id" class="form-control" id="student_id">
                     <option value="">Select Student</option>
-                    @foreach($data['student_id'] as $student)
+                    @foreach($data['active_student'] as $student)
                         <option value="{{$student->id}}">{{$student->fullname}}</option>
                     @endforeach
                 </select>

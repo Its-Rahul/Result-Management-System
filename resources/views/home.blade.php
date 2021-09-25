@@ -28,7 +28,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Students</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">100+</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['count_student']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-users fa-2x text-gray-300"></i>
@@ -44,8 +44,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Subject Listed</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">20+</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Active Student</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['active_std']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -64,7 +64,7 @@
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Class Listed</div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$data['count_class']}}</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
@@ -88,7 +88,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Result Declare</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>

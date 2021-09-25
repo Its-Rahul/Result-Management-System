@@ -42,17 +42,6 @@ class ClassController extends Controller
      */
     public function store(ClassRequest $request)
     {
-//        $validator = Validator::make($request->all(),[
-//            'classname' => 'required|String|max:50',
-//            'classnamenumeric' => 'required|Integer',
-//            'section' => 'required|String|max:10',
-//        ]);
-//        if ($validator->fails()){
-//            return redirect()->route('class.create')
-//                ->withErrors($validator)
-//                ->withInput();
-//        }
-
 
         $row = Classes::create($request->all());
         if ($row) {
@@ -145,7 +134,6 @@ class ClassController extends Controller
     public function getSubjectByClassId(Request $request){
         $class = Classes::find($request->input('class_id'));
         $html = "";
-//        <input type='hidden' name='subject_id'  value='$subject->id'>{$subject->subject_name}
         foreach($class->subjects as $subject){
             $html .= "<tr><td><input type='hidden' name='subject_id[]'  value='$subject->id'>{$subject->subject_name}</td>
                       <td><input type='number' class='form-control col-md-2' name='marks[]'></td></tr>";
@@ -154,7 +142,9 @@ class ClassController extends Controller
         return $html;
     }
     public function getStudentByClassId(Request $request){
+
         $classes = Classes::find($request->input('class_id'));
+
         $html = "<option value=''>Select Student</option>";
         foreach($classes->students as $student){
             $html .= "<option value='$student->id'>$student->fullname</option>";

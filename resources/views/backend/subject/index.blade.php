@@ -60,7 +60,7 @@
                <td>
                    <a href="{{route('subject.show',$row->id)}}" class="btn btn-info">View</a>
                    <a href="{{route('subject.edit',$row->id)}}" class="btn btn-warning">Edit</a>
-                   <form action="{{route('subject.destroy',$row->id)}}" method="post">
+                   <form action="{{route('subject.destroy',$row->id)}}" method="post" class="d-inline">
                        <input type="hidden" name="_method" value="delete" />
                        @csrf
                        <button type="submit" class="btn btn-danger">Delete</button>
